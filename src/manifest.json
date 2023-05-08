@@ -8,7 +8,21 @@
     "manifest_version": 3,
     "default_locale": "en",
     "minimum_chrome_version": "88",
-    "permissions": [],
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "content.js"
+            ],
+            "matches": [
+                "https://cairn.info/*",
+                "https://*.acces-distant.sciencespo.fr/*"
+            ]
+        }
+    ],
     "icons": {
         "128": "assets/img/128x128.png"
     },
