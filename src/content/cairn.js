@@ -55,7 +55,9 @@ const process = async () => {
         spinner.innerHTML = spinnerContent
         item.appendChild(spinner);
 
-        await download(item.getAttribute('href'), item.textContent)
+        const itemHref = item.getAttribute('href')
+        const itemTitle = item.textContent.trim().replace(/\s\s+/g, ' (p. ').replace(/ -$/,')')
+        await download(itemHref, itemTitle)
 
         progress.value = progress.value + 1
         item.removeChild(spinner)
